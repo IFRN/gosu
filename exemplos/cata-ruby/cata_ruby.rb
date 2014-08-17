@@ -16,8 +16,8 @@ class CataRuby < Gosu::Window
   end
   def update
     move_x = 0
-    move_x -= 5 if button_down? Gosu::KbLeft
-    move_x += 5 if button_down? Gosu::KbRight
+    move_x -= 5 if button_down? Gosu::KbLeft  or button_down?(Gosu::GpLeft)
+    move_x += 5 if button_down? Gosu::KbRight or button_down?(Gosu::GpRight)
     @jogador.update(move_x)
     @jogador.collect_gems(@map.gems)
     # camera segue o jogador
@@ -32,7 +32,7 @@ class CataRuby < Gosu::Window
     end
   end
   def button_down(id)
-    if id == Gosu::KbUp then @jogador.try_to_jump end
+    if id == Gosu::KbUp  or id == Gosu::GpUp then @jogador.try_to_jump end
     if id == Gosu::KbEscape then close end
   end
 end
