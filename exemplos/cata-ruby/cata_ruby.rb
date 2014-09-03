@@ -26,6 +26,7 @@ class CataRuby < Gosu::Window
   end
   def draw
     @sky.draw 0, 0, 0
+    # Faz com que tudo dentro do bloco seja desenhado deslocado
     translate(-@camera_x, -@camera_y) do
       @map.draw
       @jogador.draw
