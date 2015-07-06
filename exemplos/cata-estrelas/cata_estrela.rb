@@ -55,13 +55,13 @@ class CataEstrela < Gosu::Window
 
   private
   def update_inicio
-    @estado = "JOGANDO" if button_down?(Gosu::KbI)
+    if button_down?(Gosu::KbI) then @estado = "JOGANDO" end
   end
 
   def update_jogando
-    @jogador.girar_direita  if button_down?(Gosu::KbRight) or button_down?(Gosu::GpRight) 
-    @jogador.girar_esquerda if button_down?(Gosu::KbLeft) or button_down?(Gosu::GpLeft)
-    @jogador.acelerar       if button_down?(Gosu::KbUp) or button_down?(Gosu::GpUp)
+    if button_down?(Gosu::KbRight) or button_down?(Gosu::GpRight) then @jogador.girar_direita  end
+    if button_down?(Gosu::KbLeft)  or button_down?(Gosu::GpLeft)  then @jogador.girar_esquerda end 
+    if button_down?(Gosu::KbUp)    or button_down?(Gosu::GpUp)    then @jogador.acelerar       end
     if rand(100) < 4 and @estrelas.size < 25 then
       @estrelas.push(Estrela.new)
     end 
@@ -71,4 +71,3 @@ class CataEstrela < Gosu::Window
     @estado = "FIM" if @tempo.to_i >= 30
   end    
 end
-
