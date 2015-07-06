@@ -3,15 +3,14 @@ require 'gosu'
 class Estrela
   attr_reader :x, :y
   
-  def initialize(janela)
-    @janela = janela
+  def initialize
     @color = Gosu::Color.new(0xff000000)
     @color.red   = rand(256 - 40) + 40
     @color.green = rand(256 - 40) + 40
     @color.blue  = rand(256 - 40) + 40
     @x = rand * 640 
     @y = rand * 480 
-    @imagens = Gosu::Image::load_tiles(@janela, "Estrela.png", 25, 25, false)
+    @imagens = Gosu::Image::load_tiles("Estrela.png", 25, 25)
   end 
 
   def draw

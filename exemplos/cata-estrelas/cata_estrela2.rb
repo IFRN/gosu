@@ -7,12 +7,12 @@ class CataEstrela < Gosu::Window
 
   def initialize 
     super(640,480,false)
-    self.caption = "Sem Nome"
-    @imagem_fundo = Gosu::Image.new(self, "Space.png", true)
+    self.caption = "Cata Estrelas"
+    @imagem_fundo = Gosu::Image.new("Space.png")
     @jogador1 = Jogador.new(self) 
     @jogador2 = Jogador.new(self)
     @estrelas = []
-    @fonte = Gosu::Font.new(self, Gosu::default_font_name, 20)
+    @fonte = Gosu::Font.new(20)
     @tempo = 0.0
     @estado = "INICIO"
   end 
@@ -70,7 +70,7 @@ class CataEstrela < Gosu::Window
     @jogador2.acelerar       if button_down?(Gosu::KbC) or button_down?(Gosu::Gp1Button5)
 
     if rand(100) < 10 and @estrelas.size < 25 then
-      @estrelas.push(Estrela.new(self))
+      @estrelas.push(Estrela.new)
     end
     @jogador1.cata_estrelas(@estrelas)
     @jogador1.mover

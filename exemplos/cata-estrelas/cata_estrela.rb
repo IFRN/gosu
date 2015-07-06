@@ -8,10 +8,10 @@ class CataEstrela < Gosu::Window
   def initialize 
     super(640,480,false)
     self.caption = "Cata Estrelas"
-    @imagem_fundo = Gosu::Image.new(self, "Space.png", true)
+    @imagem_fundo = Gosu::Image.new("Space.png")
     @jogador = Jogador.new(self) 
     @estrelas = []
-    @fonte = Gosu::Font.new(self, Gosu::default_font_name, 20)
+    @fonte = Gosu::Font.new(20)
     @tempo = 0.0
     @estado = "INICIO"
   end 
@@ -53,7 +53,7 @@ class CataEstrela < Gosu::Window
     end 
   end
 
-  private 
+  private
   def update_inicio
     @estado = "JOGANDO" if button_down?(Gosu::KbI)
   end
@@ -63,7 +63,7 @@ class CataEstrela < Gosu::Window
     @jogador.girar_esquerda if button_down?(Gosu::KbLeft) or button_down?(Gosu::GpLeft)
     @jogador.acelerar       if button_down?(Gosu::KbUp) or button_down?(Gosu::GpUp)
     if rand(100) < 4 and @estrelas.size < 25 then
-      @estrelas.push(Estrela.new(self))
+      @estrelas.push(Estrela.new)
     end 
     @jogador.cata_estrelas(@estrelas)
     @jogador.mover

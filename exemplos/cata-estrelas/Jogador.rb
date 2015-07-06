@@ -3,12 +3,11 @@ require 'gosu'
 class Jogador 
   attr_reader :placar
   def initialize (janela)
-    @janela = janela
-    @imagem = Gosu::Image.new(@janela,"Nave.bmp", true)
-    @beep = Gosu::Sample.new(@janela, "Beep.wav")
+    @imagem = Gosu::Image.new("Nave.bmp")
+    @beep = Gosu::Sample.new("Beep.wav")
     @placar = 0 
-    @x = @janela.width / 2
-    @y = @janela.height / 2
+    @x = janela.width / 2
+    @y = janela.height / 2
     @vel_x = 0
     @vel_y = 0
     @angulo = 0.0
