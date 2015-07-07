@@ -3,14 +3,13 @@ require 'gosu'
 class Jogador
   attr_reader :x, :y
 
-  def initialize(window, x, y)
+  def initialize(map, x, y)
     @x, @y = x, y
     @dir = :left
     @vy = 0 #  Velocidade vertical
-    @map = window.map
+    @map = map
     # Carrega todas as imagens para animação
-    @standing, @walk1, @walk2, @jump =
-      *Gosu::Image.load_tiles(window, "Jogador.png", 50, 50, false)
+    @standing, @walk1, @walk2, @jump = *Gosu::Image.load_tiles("Jogador.png", 50, 50)
     # @cur_image contem a imagem a ser desenhada.
     # A imagem é definida no método update e desenhada no draw
     @cur_image = @standing
@@ -99,4 +98,3 @@ class Jogador
     end
   end
 end
-

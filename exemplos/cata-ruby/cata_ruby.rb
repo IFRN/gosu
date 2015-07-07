@@ -6,11 +6,11 @@ class CataRuby < Gosu::Window
   attr_reader :map
 
   def initialize
-    super(640, 480, false)
+    super(640, 480)
     self.caption = "Cata Ruby"
-    @sky = Gosu::Image.new(self, "Space.png", true)
-    @map = Mapa.new(self, "Mapa.txt")
-    @jogador = Jogador.new(self, 400, 100)
+    @sky = Gosu::Image.new("Space.png")
+    @map = Mapa.new("Mapa.txt")
+    @jogador = Jogador.new(@map, 400, 100)
     # Posicao da "camera" é no topo esquerdo do mapa
     @camera_x = @camera_y = 0
   end
@@ -37,4 +37,3 @@ class CataRuby < Gosu::Window
     if id == Gosu::KbEscape then close end
   end
 end
-

@@ -4,12 +4,12 @@ require 'gema'
 class Mapa
   attr_reader :width, :height, :gems
 
-  def initialize(window, filename)
+  def initialize(filename)
     # Load 60x60 tiles, 5px overlap in all four directions.
     # carrega imagens de 60x60, com 5 pixel de sobreposição nas quatro direções
-    @tileset = Gosu::Image.load_tiles(window, "Mapa.png", 60, 60, true)
+    @tileset = Gosu::Image.load_tiles("Mapa.png", 60, 60)
 
-    gem_img = Gosu::Image.new(window, "Gema.png", false)
+    gem_img = Gosu::Image.new("Gema.png")
     @gems = []
 
     lines = File.readlines(filename).map do |line| 
