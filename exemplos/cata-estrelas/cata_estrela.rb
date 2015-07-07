@@ -1,12 +1,13 @@
+#encoding: UTF-8
 require 'gosu'
 require_relative 'jogador'
 require_relative 'estrela'
 
 class CataEstrela < Gosu::Window
-  @@formato = [3, 1.0, 1.0, 0xffffff00]
+  @@formato = [1, 1, Gosu::Color::YELLOW]
 
   def initialize 
-    super(640,480,false)
+    super(640, 480)
     self.caption = "Cata Estrelas"
     @imagem_fundo = Gosu::Image.new("Space.png")
     @jogador = Jogador.new(self) 
@@ -17,7 +18,7 @@ class CataEstrela < Gosu::Window
   end 
 
   def draw
-    @imagem_fundo.draw(0,0,0)
+    @imagem_fundo.draw(0, 0, 0)
     if    @estado == "INICIO"  then draw_inicio
     elsif @estado == "JOGANDO" then draw_jogando
     else                            draw_fim     end 
@@ -25,9 +26,9 @@ class CataEstrela < Gosu::Window
   
   private
   def draw_inicio
-    msg = "PRESSIONE [I] PARA COMECAR"
-    x = self.width / 2 - @fonte.text_width(msg,1) / 2
-    @fonte.draw(msg, x, self.height/2, *@@formato)
+    msg = "PRESSIONE [I] PARA COMEÇAR"
+    meio = self.width / 2 - @fonte.text_width(msg, 1) / 2
+    @fonte.draw(msg, meio, self.height/2, 3, *@@formato)
   end
 
   def draw_jogando
@@ -35,14 +36,14 @@ class CataEstrela < Gosu::Window
     for estrela in @estrelas do
       estrela.draw
     end
-    @fonte.draw("Placar: #{@jogador.placar}", 10, 10, *@@formato)
-    @fonte.draw("Tempo: #{@tempo.to_i}s",     10, 30, *@@formato)
+    @fonte.draw("Placar: #{@jogador.placar}", 10, 10, 3, *@@formato)
+    @fonte.draw("Tempo: #{@tempo.to_i}s",     10, 30, 3, *@@formato)
   end
 
   def draw_fim
     msg = "FIM DE JOGO, VOCE FEZ #{@jogador.placar} PONTOS"
-    x = self.width / 2 - @fonte.text_width(msg,1) / 2
-    @fonte.draw(msg, x, self.height/2, *@@formato)
+    meio = self.width / 2 - @fonte.text_width(msg, 1) / 2
+    @fonte.draw(msg, meio, self.height/2, 3, *@@formato)
   end
 
   public
@@ -68,6 +69,6 @@ class CataEstrela < Gosu::Window
     @jogador.cata_estrelas(@estrelas)
     @jogador.mover
     @tempo += 1.0/60.0
-    @estado = "FIM" if @tempo.to_i >= 30
+    if @tempo.to_i >= 30 then @estado = "FIM" end
   end    
 end

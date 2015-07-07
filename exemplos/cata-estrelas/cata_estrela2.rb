@@ -3,10 +3,10 @@ require_relative 'jogador'
 require_relative 'estrela'
 
 class CataEstrela < Gosu::Window
-  @@formato = [3, 1.0, 1.0, 0xffffff00]
+  @@formato = [1, 1 , Gosu::Color::YELLOW]
 
   def initialize 
-    super(640,480,false)
+    super(640, 480)
     self.caption = "Cata Estrelas"
     @imagem_fundo = Gosu::Image.new("Space.png")
     @jogador1 = Jogador.new(self) 
@@ -18,7 +18,7 @@ class CataEstrela < Gosu::Window
   end 
 
   def draw
-    @imagem_fundo.draw(0,0,0)
+    @imagem_fundo.draw(0, 0, 0)
     if    @estado == "INICIO"  then draw_inicio
     elsif @estado == "JOGANDO" then draw_jogando
     else                            draw_fim     end 
@@ -27,8 +27,8 @@ class CataEstrela < Gosu::Window
   private
   def draw_inicio
     msg = "PRESSIONE [I] PARA COMECAR"
-    x = self.width / 2 - @fonte.text_width(msg,1) / 2
-    @fonte.draw(msg, x, self.height/2, *@@formato)
+    meio = self.width / 2 - @fonte.text_width(msg, 1) / 2
+    @fonte.draw(msg, meio, self.height/2, 3, *@@formato)
   end
 
   def draw_jogando
@@ -37,15 +37,15 @@ class CataEstrela < Gosu::Window
     for estrela in @estrelas do
       estrela.draw
     end
-    @fonte.draw("Jogador 1: #{@jogador1.placar}", 10, 10, *@@formato)
-    @fonte.draw("Jogador 2: #{@jogador2.placar}", 10, 30, *@@formato)
-    @fonte.draw("Tempo: #{@tempo.to_i}s",     10, 50, *@@formato)
+    @fonte.draw("Jogador 1: #{@jogador1.placar}", 10, 10, 3, *@@formato)
+    @fonte.draw("Jogador 2: #{@jogador2.placar}", 10, 30, 3, *@@formato)
+    @fonte.draw("Tempo: #{@tempo.to_i}s",     10, 50, 3, *@@formato)
   end
 
   def draw_fim
     msg = "FIM DE JOGO: Jogador 1 #{@jogador1.placar} X #{@jogador2.placar} Jogador 2"
-    x = self.width / 2 - @fonte.text_width(msg,1) / 2
-    @fonte.draw(msg, x, self.height/2, *@@formato)
+    meio = self.width / 2 - @fonte.text_width(msg,1) / 2
+    @fonte.draw(msg, meio, self.height/2, 3, *@@formato)
   end
 
   public
@@ -63,11 +63,11 @@ class CataEstrela < Gosu::Window
 
   def update_jogando
     @jogador1.girar_direita  if button_down?(Gosu::KbRight) or button_down?(Gosu::Gp0Right) 
-    @jogador1.girar_esquerda if button_down?(Gosu::KbLeft) or button_down?(Gosu::Gp0Left)
-    @jogador1.acelerar       if button_down?(Gosu::KbUp) or button_down?(Gosu::Gp0Button5)
-    @jogador2.girar_direita  if button_down?(Gosu::KbZ) or button_down?(Gosu::Gp1Right) 
-    @jogador2.girar_esquerda if button_down?(Gosu::KbX) or button_down?(Gosu::Gp1Left)
-    @jogador2.acelerar       if button_down?(Gosu::KbC) or button_down?(Gosu::Gp1Button5)
+    @jogador1.girar_esquerda if button_down?(Gosu::KbLeft)  or button_down?(Gosu::Gp0Left)
+    @jogador1.acelerar       if button_down?(Gosu::KbUp)    or button_down?(Gosu::Gp0Button5)
+    @jogador2.girar_direita  if button_down?(Gosu::KbZ)     or button_down?(Gosu::Gp1Right) 
+    @jogador2.girar_esquerda if button_down?(Gosu::KbX)     or button_down?(Gosu::Gp1Left)
+    @jogador2.acelerar       if button_down?(Gosu::KbC)     or button_down?(Gosu::Gp1Button5)
 
     if rand(100) < 10 and @estrelas.size < 25 then
       @estrelas.push(Estrela.new)
@@ -76,7 +76,7 @@ class CataEstrela < Gosu::Window
     @jogador1.mover
     @jogador2.cata_estrelas(@estrelas)
     @jogador2.mover    
-    @tempo += 1.0/60.0
+    @tempo += 1.0 / 60.0
     @estado = "FIM" if @tempo.to_i >= 30
   end    
 end

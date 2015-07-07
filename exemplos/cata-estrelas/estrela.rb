@@ -14,8 +14,7 @@ class Estrela
   end 
 
   def draw
-    imagem= @imagens[Gosu::milliseconds / 100 % @imagens.size]
-    imagem.draw(@x - imagem.width / 2.0, @y - imagem.height / 2.0,
-        1, 1, 1, @color, :add)
+    imagem = @imagens[Gosu::milliseconds / 100 % @imagens.size]
+    imagem.draw(@x - imagem.width / 2.0, @y - imagem.height / 2.0, 1, 1, 1, @color, :add)
   end 
 end
