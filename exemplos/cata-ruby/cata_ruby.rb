@@ -3,8 +3,7 @@ require 'jogador'
 require 'mapa'
 
 class CataRuby < Gosu::Window
-  attr_reader :map
-
+  
   def initialize
     super(640, 480)
     self.caption = "Cata Ruby"
