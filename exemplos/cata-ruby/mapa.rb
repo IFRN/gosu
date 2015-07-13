@@ -12,24 +12,22 @@ class Mapa
     gem_img = Gosu::Image.new("Gema.png")
     @gems = []
 
-    lines = File.readlines(filename).map do |line| 
-      line.chomp 
+    lines = File.readlines(filename).map do |line|
+      line.chomp
     end
     @height = lines.size
     @width = lines[0].size
-    @tiles = Array.new(@width) do |x|
-      Array.new(@height) do |y|
-        case lines[y][x, 1]
-        when '"'
-          0
-        when '#'
-          1
-        when 'x'
-          @gems.push(Gema.new(gem_img, x * 50 + 25, y * 50 + 25))
-          nil
-        else
-          nil
-        end
+    @tiles = []
+    for y in 0..(@height-1) do
+      @tiles[y]=[]
+      for x in 0..(@width-1) do
+        tile = lines[y][x]
+        @tiles[y][x] = if    tile == '"' then 0
+                       elsif tile == '#' then 1
+                       elsif tile == 'x' then
+                         @gems << Gema.new(gem_img, x * 50 + 25, y * 50 + 25)
+                        nil
+                       else nil end
       end
     end
   end
@@ -37,20 +35,20 @@ class Mapa
   def draw
     # Função de desenho simplificada:
     #  - Desenha TODOS os quadros. uns na tela outros fora da tela
-    @height.times do |y|
-      @width.times do |x|
-        tile = @tiles[x][y]
-        if tile
+    for y in 0..(@height-1) do
+      for x in 0..(@width-1) do
+        tile = @tiles[y][x]
+        if tile #   tile != nil
           @tileset[tile].draw(x * 50 - 5, y * 50 - 5, 0)
         end
       end
     end
-    @gems.each do |c| c.draw end
+    for gema in @gems do gema.draw end
   end
 
-  # Método que retorna verdadeiro se o pixel das 
+  # Método que retorna verdadeiro se o pixel das
   # cordenadas (x,y) passadas é sólido
-  def solid?(x, y)
-    y < 0 || @tiles[x / 50][y / 50]
+  def solido?(x, y)
+    y < 0 || @tiles[y / 50][x / 50]
   end
 end

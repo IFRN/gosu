@@ -3,16 +3,16 @@ require 'gosu'
 class Jogador
   attr_reader :x, :y
 
-  def initialize(map, x, y)
+  def initialize(mapa, x, y)
     @x, @y = x, y
     @dir = :left
     @vy = 0 #  Velocidade vertical
-    @map = map
+    @mapa = mapa
     # Carrega todas as imagens para animação
-    @standing, @walk1, @walk2, @jump = *Gosu::Image.load_tiles("Jogador.png", 50, 50)
-    # @cur_image contem a imagem a ser desenhada.
+    @parado, @andando1, @andando2, @pulo = *Gosu::Image.load_tiles("Jogador.png", 50, 50)
+    # @imagem_atual contem a imagem a ser desenhada.
     # A imagem é definida no método update e desenhada no draw
-    @cur_image = @standing
+    @image_atual = @parado
   end
 
   def draw
@@ -20,45 +20,43 @@ class Jogador
     # a variável factor indica essa direção.
     if @dir == :left then
       offs_x = -25
-      factor = 1.0
+      fator = 1.0
     else
       offs_x = 25
-      factor = -1.0
+      fator = -1.0
     end
-    @cur_image.draw(@x + offs_x, @y - 49, 0, factor, 1.0)
+    @image_atual.draw(@x + offs_x, @y - 49, 0, fator, 1.0)
   end
 
   # verifica se o objeto pode ser colcado em (x+offs_x,y+offs_y)
-  def would_fit(offs_x, offs_y)
-    # A verificação é feita no centro/cima e centro/baixo 
-    not @map.solid?(@x + offs_x, @y + offs_y) and
-      not @map.solid?(@x + offs_x, @y + offs_y - 45)
+  def vai_caber?(offs_x, offs_y)
+    # A verificação é feita no centro/cima e centro/baixo
+    not @mapa.solido?(@x + offs_x, @y + offs_y) and
+      not @mapa.solido?(@x + offs_x, @y + offs_y - 45)
   end
 
   def update(move_x)
     # Seleciona a imagem dependendo da ação
     if (move_x == 0)
-      @cur_image = @standing
+      @image_atual = @parado
     else
-      @cur_image = (Gosu::milliseconds / 175 % 2 == 0) ? @walk1 : @walk2
+      @image_atual =
+        if Gosu::milliseconds / 175 % 2 == 0 then @andando1 else @andando2 end
     end
     if (@vy < 0)
-      @cur_image = @jump
+      @image_atual = @pulo
     end
 
-    # Directional walking, horizontal movement
+    # Movimento horizontal
     if move_x > 0 then
       @dir = :right
-      move_x.times do 
-        if would_fit(1, 0) then @x += 1 end 
-      end
-    end
-    if move_x < 0 then
+      i = 1
+    elsif(move_x < 0)
       @dir = :left
-      (-move_x).times do
-         if would_fit(-1, 0) then 
-           @x -= 1 end 
-         end
+      i = -1
+    end
+    move_x.abs.times do
+      if vai_caber?(i, 0) then @x += i end
     end
 
     # Aceleração/gravidade
@@ -66,34 +64,24 @@ class Jogador
     # a curva do salto do jogador será a parábola que queremos
     @vy += 1
     # Movimento vertical
-    if @vy > 0 then
-      @vy.times do
-        if would_fit(0, 1) then 
-          @y += 1 
-        else 
-          @vy = 0 
-        end 
-      end
-    end
-    if @vy < 0 then
-      (-@vy).times do
-        if would_fit(0, -1) then 
-          @y -= 1 
-        else 
-          @vy = 0 
-        end 
+    i = if @vy > 0 then 1 else -1 end
+    @vy.abs.times do
+      if vai_caber?(0, i) then
+        @y += i
+      else
+        @vy = 0
       end
     end
   end
 
-  def try_to_jump
-    if @map.solid?(@x, @y + 1) then
+  def tente_pular
+    if @mapa.solido?(@x, @y + 1) then
       @vy = -20
     end
   end
 
-  def collect_gems(gems)
-    gems.reject! do |c|
+  def collect_gems(gemas)
+    gemas.reject! do |c|
       (c.x - @x).abs < 50 and (c.y - @y).abs < 50
     end
   end
