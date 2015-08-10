@@ -38,9 +38,7 @@ class Mapa
     for y in 0..(@height-1) do
       for x in 0..(@width-1) do
         tile = @tiles[y][x]
-        if tile #   tile != nil
-          @tileset[tile].draw(x * 50 - 5, y * 50 - 5, 0)
-        end
+        @tileset[tile].draw(x * 50 - 5, y * 50 - 5, 0) if tile #   tile != nil
       end
     end
     for gema in @gems do gema.draw end

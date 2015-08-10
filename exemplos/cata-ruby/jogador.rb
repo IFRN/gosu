@@ -56,7 +56,7 @@ class Jogador
       i = -1
     end
     move_x.abs.times do
-      if vai_caber?(i, 0) then @x += i end
+      @x += i    if vai_caber?(i, 0)
     end
 
     # Aceleração/gravidade
@@ -75,9 +75,7 @@ class Jogador
   end
 
   def tente_pular
-    if @mapa.solido?(@x, @y + 1) then
-      @vy = -20
-    end
+    @vy = -20     if @mapa.solido?(@x, @y + 1)
   end
 
   def collect_gems(gemas)
