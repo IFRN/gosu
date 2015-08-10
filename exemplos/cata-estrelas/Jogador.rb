@@ -1,17 +1,17 @@
 require 'gosu'
 
-class Jogador 
+class Jogador
   attr_reader :placar
-  def initialize (janela)
+  def initialize (x, y)
     @imagem = Gosu::Image.new("Nave.bmp")
     @beep = Gosu::Sample.new("Beep.wav")
-    @placar = 0 
-    @x = janela.width / 2
-    @y = janela.height / 2
+    @placar = 0
+    @x = x
+    @y = y
     @vel_x = 0
     @vel_y = 0
     @angulo = 0.0
-  end 
+  end
 
   def draw
     @imagem.draw_rot(@x, @y, 2, @angulo)
@@ -19,16 +19,16 @@ class Jogador
 
   def girar_direita
     @angulo += 5.0
-  end 
+  end
 
   def girar_esquerda
     @angulo -= 5.0
   end
- 
+
   def acelerar
     @vel_x += Gosu::offset_x(@angulo, 0.5)
     @vel_y += Gosu::offset_y(@angulo, 0.5)
-  end 
+  end
 
   def mover
     @x += @vel_x

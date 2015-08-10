@@ -10,7 +10,7 @@ class CataEstrela < Gosu::Window
     super(640, 480)
     self.caption = "Cata Estrelas"
     @imagem_fundo = Gosu::Image.new("Space.png")
-    @jogador = Jogador.new(self)
+    @jogador = Jogador.new(width / 2, height / 2)
     @estrelas = []
     @fonte = Gosu::Font.new(20)
     @tempo = 0.0
@@ -38,8 +38,8 @@ class CataEstrela < Gosu::Window
 
   def draw_inicio
     msg = "PRESSIONE [I] PARA COMEÇAR"
-    meio = self.width / 2 - @fonte.text_width(msg, 1) / 2
-    @fonte.draw(msg, meio, self.height/2, 3, *@@formato)
+    meio = width / 2 - @fonte.text_width(msg, 1) / 2
+    @fonte.draw(msg, meio, height/2, 3, *@@formato)
   end
 
   # Estado: jogando
@@ -69,7 +69,7 @@ class CataEstrela < Gosu::Window
   # Estado: fim do jogo
   def draw_fim
     msg = "FIM DE JOGO, VOCE FEZ #{@jogador.placar} PONTOS"
-    meio = self.width / 2 - @fonte.text_width(msg, 1) / 2
+    meio = width / 2 - @fonte.text_width(msg, 1) / 2
     @fonte.draw(msg, meio, self.height/2, 3, *@@formato)
   end
 end
