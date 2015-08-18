@@ -33,7 +33,7 @@ class CataEstrela < Gosu::Window
 
   # Estado: inicio do jogo
   def update_inicio
-    @estado = "JOGANDO" if button_down?(Gosu::KbI)
+    if button_down?(Gosu::KbI) then @estado = "JOGANDO" end
   end
 
   def draw_inicio
@@ -45,16 +45,16 @@ class CataEstrela < Gosu::Window
   # Estado: jogando
   def update_jogando
     # eventos
-    @jogador.girar_direita  if button_down?(Gosu::KbRight) or button_down?(Gosu::GpRight)
-    @jogador.girar_esquerda if button_down?(Gosu::KbLeft)  or button_down?(Gosu::GpLeft)
-    @jogador.acelerar       if button_down?(Gosu::KbUp)    or button_down?(Gosu::GpUp)
+    if button_down?(Gosu::KbRight) or button_down?(Gosu::GpRight) then @jogador.girar_direita end
+    if button_down?(Gosu::KbLeft)  or button_down?(Gosu::GpLeft) then @jogador.girar_esquerda end
+    if button_down?(Gosu::KbUp)    or button_down?(Gosu::GpUp) then @jogador.acelerar end   
     # inserir novas estrelas estrelas se necessario
-    @estrelas.push(Estrela.new) if rand(100) < 4 and @estrelas.size < 25
+    if rand(100) < 4 and @estrelas.size < 25 then @estrelas.push(Estrela.new) end
 
     @jogador.cata_estrelas(@estrelas)  # catar estrelas
     @jogador.mover                     # atualizar a posicao do jogador
     @tempo += 1.0/60.0                 # incrementar o tempo
-    @estado = "FIM"        if @tempo.to_i >= 30  # terminar o jogo depois de 30 segundos
+    if @tempo.to_i >= 30 then @estado = "FIM" end         # terminar o jogo depois de 30 segundos
   end
 
   def draw_jogando
