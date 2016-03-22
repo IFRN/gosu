@@ -9,5 +9,5 @@ Exemplos de jogos desenvolvidos no IFRN usando a biblioteca Gosulib
   - [MineRuby](https://github.com/ric-luiz/mineRuby) ![Stars](https://img.shields.io/github/stars/ric-luiz/mineRuby.png?style=social&label=★ "MineRuby")
 
 2012.1
-======
+------
   - [Mad Birds](https://github.com/jamillosantos/tfprog2012.1) ![Stars](https://img.shields.io/github/stars/jamillosantos/tfprog2012.1?style=social&label=★ "Mad Birds")
