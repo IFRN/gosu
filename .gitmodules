@@ -7,6 +7,6 @@
 [submodule "20121/Mad Birds"]
 	path = 20121/Mad Birds
 	url = https://github.com/jamillosantos/tfprog2012.1
-[submodule "20131/theHorder"]
-	path = 20131/theHorder
+[submodule "20121/theHorder"]
+	path = 20121/theHorder
 	url = https://github.com/JoabMendes/theHorder
