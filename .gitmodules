@@ -1,0 +1,12 @@
+[submodule "20152/Favorable"]
+	path = 20152/Favorable
+	url = https://github.com/Evandson/favorable-gosu
+[submodule "20152/MineRuby"]
+	path = 20152/MineRuby
+	url = https://github.com/ric-luiz/mineRuby
+[submodule "20121/Mad Birds"]
+	path = 20121/Mad Birds
+	url = https://github.com/jamillosantos/tfprog2012.1
+[submodule "20131/theHorder"]
+	path = 20131/theHorder
+	url = https://github.com/JoabMendes/theHorder
