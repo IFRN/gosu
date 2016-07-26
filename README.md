@@ -13,7 +13,7 @@ Exemplos de jogos desenvolvidos no IFRN usando a biblioteca Gosulib
 
 ## 2013.1
 
-- [The Horder](20131/theHorder)
+- [The Horder](https://github.com/JoabMendes/theHorder) ![Stars](https://img.shields.io/github/stars/JoabMendes/theHorder.png?style=social&label=★ "Mad Birds")
 
 ## 2012.1
 
