@@ -11,10 +11,7 @@ Exemplos de jogos desenvolvidos no IFRN usando a biblioteca Gosulib
 
 - [Crazy Crash](20132/crazycrash)
 
-## 2013.1
-
-- [The Horder](https://github.com/JoabMendes/theHorder) ![Stars](https://img.shields.io/github/stars/JoabMendes/theHorder.png?style=social&label=★ "Mad Birds")
-
 ## 2012.1
 
 - [Mad Birds](https://github.com/jamillosantos/tfprog2012.1) ![Stars](https://img.shields.io/github/stars/jamillosantos/tfprog2012.1.png?style=social&label=★ "Mad Birds")
+- [The Horder](https://github.com/JoabMendes/theHorder) ![Stars](https://img.shields.io/github/stars/JoabMendes/theHorder.png?style=social&label=★ "Mad Birds")
