@@ -1,6 +1,6 @@
 # gosu-exemplos
 
-Exemplos de jogos desenvolvidos no IFRN usando a biblioteca Gosulib
+Exemplos de jogos desenvolvidos no IFRN usando a biblioteca [Gosu](https://github.com/gosu/gosu).
 
 ## 2015.2
 
@@ -15,3 +15,7 @@ Exemplos de jogos desenvolvidos no IFRN usando a biblioteca Gosulib
 
 - [Mad Birds](https://github.com/jamillosantos/tfprog2012.1) ![Stars](https://img.shields.io/github/stars/jamillosantos/tfprog2012.1.png?style=social&label=★ "Mad Birds")
 - [The Horder](https://github.com/JoabMendes/theHorder) ![Stars](https://img.shields.io/github/stars/JoabMendes/theHorder.png?style=social&label=★ "Mad Birds")
+
+### Como contribuir?
+
+Gostaria de adicionar um projeto? Siga as instruções no [CONTRIBUTING.md](CONTRIBUTING.md).
