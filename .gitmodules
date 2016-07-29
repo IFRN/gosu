@@ -10,3 +10,6 @@
 [submodule "20121/theHorder"]
 	path = 20121/theHorder
 	url = https://github.com/JoabMendes/theHorder
+[submodule "20142/FemaleKillerRUBY"]
+	path = 20142/FemaleKillerRUBY
+	url = https://github.com/leisiamedeiros/FemaleKillerRUBY
