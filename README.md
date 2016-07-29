@@ -7,6 +7,11 @@ Exemplos de jogos desenvolvidos no IFRN usando a biblioteca [Gosu](https://githu
 - [Favorable](https://github.com/Evandson/favorable-gosu) ![Stars](https://img.shields.io/github/stars/Evandson/favorable-gosu.png?style=social&label=★ "Favorable")
 - [MineRuby](https://github.com/ric-luiz/mineRuby) ![Stars](https://img.shields.io/github/stars/ric-luiz/mineRuby.png?style=social&label=★ "MineRuby")
 
+### 2014.2
+
+- [Female Killer](https://github.com/leisiamedeiros/FemaleKillerRUBY) ![Stars](https://img.shields.io/github/stars/leisiamedeiros/FemaleKillerRUBY.png?style=social&label=★ "Female Killer")
+
+
 ## 2013.2
 
 - [Crazy Crash](20132/crazycrash)
