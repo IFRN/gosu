@@ -13,3 +13,6 @@
 [submodule "20142/FemaleKillerRUBY"]
 	path = 20142/FemaleKillerRUBY
 	url = https://github.com/leisiamedeiros/FemaleKillerRUBY
+[submodule "20142/StuckInSpace"]
+	path = 20142/StuckInSpace
+	url = https://github.com/hayssac/StuckInSpace.git
