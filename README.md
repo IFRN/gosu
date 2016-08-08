@@ -10,6 +10,7 @@ Exemplos de jogos desenvolvidos no IFRN usando a biblioteca [Gosu](https://githu
 ### 2014.2
 
 - [Female Killer](https://github.com/leisiamedeiros/FemaleKillerRUBY) ![Stars](https://img.shields.io/github/stars/leisiamedeiros/FemaleKillerRUBY.png?style=social&label=★ "Female Killer")
+- [Stuck in Space](https://github.com/hayssac/StuckInSpace) ![Stars](https://img.shields.io/github/stars/hayssac/StuckInSpace.png?style=social&label=★ "Stuck in Space")
 
 
 ## 2013.2
