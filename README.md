@@ -2,6 +2,10 @@
 
 Exemplos de jogos desenvolvidos no IFRN usando a biblioteca [Gosu](https://github.com/gosu/gosu).
 
+## 2016.1
+
+- [Racing](https://github.com/felipemfp/racing) ![Stars](https://img.shields.io/github/stars/felipemfp/racing.png?style=social&label=★ "Racing")
+
 ## 2015.2
 
 - [Favorable](https://github.com/Evandson/favorable-gosu) ![Stars](https://img.shields.io/github/stars/Evandson/favorable-gosu.png?style=social&label=★ "Favorable")

@@ -16,3 +16,6 @@
 [submodule "20142/StuckInSpace"]
 	path = 20142/StuckInSpace
 	url = https://github.com/hayssac/StuckInSpace.git
+[submodule "20161/racing"]
+	path = 20161/racing
+	url = https://github.com/felipemfp/racing
