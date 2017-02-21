@@ -19,3 +19,6 @@
 [submodule "20161/racing"]
 	path = 20161/racing
 	url = https://github.com/felipemfp/racing
+[submodule "20121/BomberManGosu"]
+	path = 20121/BomberManGosu
+	url = https://github.com/duartefq/BomberManGosu
