@@ -25,6 +25,7 @@ Exemplos de jogos desenvolvidos no IFRN usando a biblioteca [Gosu](https://githu
 
 - [Mad Birds](https://github.com/jamillosantos/tfprog2012.1) ![Stars](https://img.shields.io/github/stars/jamillosantos/tfprog2012.1.png?style=social&label=★ "Mad Birds")
 - [The Horder](https://github.com/JoabMendes/theHorder) ![Stars](https://img.shields.io/github/stars/JoabMendes/theHorder.png?style=social&label=★ "Mad Birds")
+- [BomberMan](https://github.com/duartefq/BomberManGosu) ![Stars](https://img.shields.io/github/stars/duartefq/BomberManGosu.png?style=social&label=★ "BomberMan")
 
 ### Como contribuir?
 
